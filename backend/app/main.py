@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from app.api.datasets import router as datasets_router
 
 app = FastAPI(
     title="AI Data Application",
@@ -16,3 +17,5 @@ def health_check():
     return {
         "status": "healthy"
     }
+
+app.include_router(datasets_router)
